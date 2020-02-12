@@ -1,4 +1,4 @@
-# HashiCorp Packer Orb [![CircleCI](https://circleci.com/gh/salaxander/packer-orb/tree/master.svg?style=svg)](https://circleci.com/gh/salaxander/packer-orb/tree/master)[![CircleCI Orb Version](https://img.shields.io/endpoint.svg?url=https://badges.circleci.io/orb/salaxander/packer)](https://circleci.com/orbs/registry/orb/salaxander/packer)
+# HashiCorp Packer Orb [![CircleCI](https://circleci.com/gh/salaxander/packer-orb/tree/master.svg?style=svg)](https://circleci.com/gh/salaxander/packer-orb/tree/master) [![CircleCI Orb Version](https://img.shields.io/endpoint.svg?url=https://badges.circleci.io/orb/salaxander/packer)](https://circleci.com/orbs/registry/orb/salaxander/packer)
 
 A CircleCI Orb to make running HashiCorp Packer builds easy!
 
@@ -11,7 +11,7 @@ Arguments such as variables can be passed to the Packer build command via the `a
 version: 2.1
 
 orbs:
-  packer: salaxander/packer@volatile
+  packer: salaxander/packer@0.0.2
 
 jobs:
   packer-example:
