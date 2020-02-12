@@ -1,0 +1,62 @@
+version: 2.1
+
+description: |
+  Build a Packer template contained in the repository
+
+display:
+  home_url: https://github.com/salaxander/packer-orb
+
+executors:
+  default:
+    description: |
+      The HashiCorp provided Packer container
+    parameters:
+      packer-version:
+        type: string
+        default: 1.5.1
+    docker:
+      - image: hashicorp/packer:<< parameters.packer-version >>
+
+commands:
+  build:
+    description: "Run a packer build"
+    parameters:
+      template:
+        description: |
+          The name of the packer template file
+        type: string
+        default: packer.json
+      args:
+        description: |
+          Arguments to pass to the packer build command
+        type: string
+        default: ""
+
+    steps:
+      - run:
+          name: "Run a packer build"
+          command: packer build << parameters.args >> << parameters.template >>
+
+examples:
+  packer:
+    description: Run a packer build
+    usage:
+      version: 2.1
+
+      orbs:
+        packer: salaxander/packer@0.1
+      
+      jobs:
+        packer-example:
+          executor: packer/default
+          steps:
+            - checkout
+            - build:
+                template: packer.json
+                args: -var aws_region=us-east-1
+      
+      workflows:
+        version: 2
+        packer:
+          jobs:
+            - packer-example
