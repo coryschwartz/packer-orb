@@ -39,4 +39,5 @@ workflows:
             - lint
       - publish-dev:
           requires:
-            - validate        
+            - validate
+               

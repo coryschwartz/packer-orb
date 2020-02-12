@@ -45,7 +45,7 @@ examples:
 
       orbs:
         packer: salaxander/packer@0.1
-      
+
       jobs:
         packer-example:
           executor: packer/default
@@ -54,7 +54,7 @@ examples:
             - build:
                 template: packer.json
                 args: -var aws_region=us-east-1
-      
+
       workflows:
         version: 2
         packer:
