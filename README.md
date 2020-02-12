@@ -11,7 +11,7 @@ Arguments such as variables can be passed to the Packer build command via the `a
 version: 2.1
 
 orbs:
-  aws-cli: salaxander/packer@0.1
+  packer: salaxander/packer@volatile
 
 jobs:
   packer-example:
