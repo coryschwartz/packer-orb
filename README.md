@@ -1,4 +1,6 @@
-# HashiCorp Packer Orb
+# HashiCorp Packer Orb [![CircleCI](https://circleci.com/gh/salaxander/packer-orb/tree/master.svg?style=svg)](https://circleci.com/gh/salaxander/packer-orb/tree/master)
+
+A CircleCI Orb to make running HashiCorp Packer builds easy!
 
 ## Example
 For this example, any required cloud provider auth would be stored as environment variables within CircleCi.

@@ -39,7 +39,7 @@ jobs:
             circleci orb publish promote salaxander/packer@dev:latest patch --token $CIRCLE_TOKEN
 
 workflows:
-  lint_validate_deploy_dev:
+  lint_validate_deploy:
     jobs:
       - lint
       - validate:
