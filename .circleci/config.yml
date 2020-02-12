@@ -1,0 +1,42 @@
+version: 2.1
+
+executors:
+  cli:
+    resource_class: small
+    docker:
+      - image: circleci/circleci-cli
+  lint:
+    resource_class: small
+    docker:
+      - image: singapore/lint-condo
+
+jobs:
+  lint:
+    executor: lint
+    steps:
+      - checkout
+      - run: yamllint .
+  validate:
+    executor: cli
+    steps:
+      - checkout
+      - run: circleci orb validate src/@orb.yml
+  publish-dev:
+    executor: cli
+    steps:
+      - checkout
+      - run:
+          name: publish dev version
+          command: |
+            circleci orb publish src/@orb.yml salaxander/packer@dev:master --token $CIRCLE_TOKEN
+
+workflows:
+  lint_validate_deploy_dev:
+    jobs:
+      - lint
+      - validate:
+          requires:
+            - lint
+      - publish-dev:
+          requires:
+            - validate        
