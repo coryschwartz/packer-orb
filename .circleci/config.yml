@@ -28,7 +28,15 @@ jobs:
       - run:
           name: publish dev version
           command: |
-            circleci orb publish src/@orb.yml salaxander/packer@dev:master --token $CIRCLE_TOKEN
+            circleci orb publish src/@orb.yml salaxander/packer@dev:latest --token $CIRCLE_TOKEN
+  publish-prod:
+    executor: cli
+    steps:
+      - checkout
+      - run:
+          name: publish prod version
+          command: |
+            circleci orb publish promote salaxander/packer@dev:latest patch --token $CIRCLE_TOKEN
 
 workflows:
   lint_validate_deploy_dev:
@@ -38,7 +46,15 @@ workflows:
           requires:
             - lint
       - publish-dev:
+          context: orb-publishing
           requires:
             - validate
+      - approve:
+          type: approval
+          requires:
+            - publish-dev
+      - publish-prod:
+          context: orb-publishing
+          requires:
+            - approve
 
-   
