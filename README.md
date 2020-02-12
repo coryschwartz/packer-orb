@@ -1,4 +1,4 @@
-# HashiCorp Packer Orb [![CircleCI](https://circleci.com/gh/salaxander/packer-orb/tree/master.svg?style=svg)](https://circleci.com/gh/salaxander/packer-orb/tree/master)
+# HashiCorp Packer Orb [![CircleCI](https://circleci.com/gh/salaxander/packer-orb/tree/master.svg?style=svg)](https://circleci.com/gh/salaxander/packer-orb/tree/master)[![CircleCI Orb Version](https://img.shields.io/endpoint.svg?url=https://badges.circleci.io/orb/salaxander/packer)](https://circleci.com/orbs/registry/orb/salaxander/packer)
 
 A CircleCI Orb to make running HashiCorp Packer builds easy!
 

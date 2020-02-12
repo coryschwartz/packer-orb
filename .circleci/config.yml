@@ -28,7 +28,7 @@ jobs:
       - run:
           name: publish dev version
           command: |
-            circleci orb publish src/@orb.yml salaxander/packer@dev:latest --token $CIRCLE_TOKEN
+            circleci orb publish src/@orb.yml salaxander/packer@dev:${CIRCLE_SHA1:0:7} --token $CIRCLE_TOKEN
   publish-prod:
     executor: cli
     steps:
@@ -36,7 +36,7 @@ jobs:
       - run:
           name: publish prod version
           command: |
-            circleci orb publish promote salaxander/packer@dev:latest patch --token $CIRCLE_TOKEN
+            circleci orb publish promote salaxander/packer@dev:${CIRCLE_SHA1:0:7} patch --token $CIRCLE_TOKEN
 
 workflows:
   lint_validate_deploy:
