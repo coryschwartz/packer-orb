@@ -31,11 +31,15 @@ commands:
           Arguments to pass to the packer build command
         type: string
         default: ""
+      no_output_timeout:
+        type: string
+        default: 10m
 
     steps:
       - run:
           name: "Run a packer build"
           command: packer build << parameters.args >> << parameters.template >>
+          no_output_timeout: << parameters.no_output_timeout >>
 
 examples:
   packer:
