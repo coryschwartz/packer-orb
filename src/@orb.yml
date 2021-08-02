@@ -13,7 +13,7 @@ executors:
     parameters:
       packer-version:
         type: string
-        default: 1.5.1
+        default: 1.6.6
     docker:
       - image: hashicorp/packer:<< parameters.packer-version >>
 
@@ -48,7 +48,7 @@ examples:
       version: 2.1
 
       orbs:
-        packer: salaxander/packer@0.1
+        packer: salaxander/packer@0.0.2
 
       jobs:
         packer-example:
